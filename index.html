@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IBM-NJ Blogging Platform</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0f62fe;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #0f62fe;
+    }
+
+    .post {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #0f62fe;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    #newPostForm {
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #0f62fe;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0844b3;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>IBM-NJ Blogging Platform</h1>
+  </header>
+
+  <div class="container">
+    <div id="posts">
+      <div class="post">
+        <h2>Welcome to Our Blog</h2>
+        <p>This is the first post on the IBM-NJ blogging platform. Stay tuned for more updates!</p>
+      </div>
+    </div>
+
+    <form id="newPostForm">
+      <h2>Add a New Post</h2>
+      <input type="text" id="title" placeholder="Post Title" required>
+      <textarea id="content" rows="5" placeholder="Post Content" required></textarea>
+      <button type="submit">Publish</button>
+    </form>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 IBM-NJ. All rights reserved.
+  </div>
+
+  <script>
+    document.getElementById('newPostForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
+
+      if (title && content) {
+        const postDiv = document.createElement('div');
+        postDiv.className = 'post';
+        postDiv.innerHTML = `<h2>${title}</h2><p>${content}</p>`;
+
+        document.getElementById('posts').appendChild(postDiv);
+
+        document.getElementById('title').value = '';
+        document.getElementById('content').value = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
